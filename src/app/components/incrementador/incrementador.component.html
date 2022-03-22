@@ -1,0 +1,23 @@
+<div class="input-group">
+  <span class="input-group-btn">
+    <button
+      [ngClass]="btnClass"
+      (click)="changeProgress(-10)"
+      type="button">
+      <i class="fa fa-minus"></i>
+    </button>
+  </span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Porcentaje"
+    [(ngModel)]="percent">
+  <span class="input-group-btn">
+    <button
+      [ngClass]="btnClass"
+      (click)="changeProgress(10)"
+      type="button">
+      <i class="fa fa-plus"></i>
+    </button>
+  </span>
+</div>
