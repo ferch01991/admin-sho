@@ -20,18 +20,29 @@ export class IncrementadorComponent implements OnInit {
   @Output() valorSalida: EventEmitter<number> = new EventEmitter();
 
   changeProgress(valor: number) {
-
-    if (this.percent >= 100 && valor > 0) {
+    console.log(valor, this.percent);
+    if (this.percent>=100 && valor >= 0) {
       this.valorSalida.emit(100);
       return this.percent = 100;
     }
-    if (this.percent <= 0 && valor < 0) {
+    if (this.percent <= 0 && valor <= 0) {
       this.valorSalida.emit(0);
       return this.percent = 0;
     }
     this.percent = this.percent + valor;
     this.valorSalida.emit(this.percent);
     return;
+  }
+
+  onChange(valor: number) {
+    if (valor >= 100) {
+      this.percent = 100;
+    }else if (valor <= 0) {
+      this.percent = 0;
+    }else {
+      this.percent = valor;
+    }
+    this.valorSalida.emit(this.percent);
   }
 
 }
